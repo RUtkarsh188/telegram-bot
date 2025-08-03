@@ -1,8 +1,20 @@
+import requests
+import datetime
+import time
 import os
-os.system("date")
 
-from pyrogram import Client, filters
-Client.TIME_DELTA_CHECK = False
+# Check time
+try:
+    response = requests.get("http://worldtimeapi.org/api/timezone/Asia/Kolkata")
+    server_time = response.json()['datetime']
+    print("World Time API:", server_time)
+except Exception as e:
+    print("Time sync check failed:", e)
+
+print("Local System Time:", datetime.datetime.now())
+
+# Wait before starting bot
+time.sleep(5)
 
 from pyrogram import Client, filters
 from textblob import TextBlob
@@ -77,4 +89,5 @@ def monitor_message(client, message):
 print("✅ Bot is running... (Press Ctrl+C to stop)")
 
 app.run()
+
 
