@@ -1,3 +1,6 @@
+import os
+os.system("date")
+
 from pyrogram import Client, filters
 Client.TIME_DELTA_CHECK = False
 
@@ -74,3 +77,4 @@ def monitor_message(client, message):
 print("✅ Bot is running... (Press Ctrl+C to stop)")
 
 app.run()
+
