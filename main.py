@@ -1,4 +1,7 @@
 from pyrogram import Client, filters
+Client.TIME_DELTA_CHECK = False
+
+from pyrogram import Client, filters
 from textblob import TextBlob
 from datetime import datetime
 import pytz
@@ -69,4 +72,5 @@ def monitor_message(client, message):
 
 
 print("✅ Bot is running... (Press Ctrl+C to stop)")
+
 app.run()
